@@ -1,41 +1,99 @@
-function translate() {
-    const direction = document.getElementById('translationDirection').value;
-    const inputText = document.getElementById('inputText').value;
-    let outputText = '';
-
-    if (direction === 'filipinoToBaybayin') {
-        outputText = translateToBaybayin(inputText);
-    } else if (direction === 'baybayinToFilipino') {
-        outputText = translateToFilipino(inputText);
-    }
-
-    document.getElementById('outputText').textContent = outputText;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #34495e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-function translateToBaybayin(text) {
-    const baybayinMap = {
-        'a': 'ᜀ', 'b': 'ᜊ', 'k': 'ᜃ', 'd': 'ᜇ', 'e': 'ᜁ', 'g': 'ᜄ', 'h': 'ᜑ',
-        'i': 'ᜂ', 'l': 'ᜎ', 'm': 'ᜋ', 'n': 'ᜈ', 'ng': 'ᜅ', 'o': 'ᜂ', 'p': 'ᜉ',
-        'r': 'ᜇ', 's': 'ᜐ', 't': 'ᜆ', 'u': 'ᜂ', 'w': 'ᜏ', 'y': 'ᜌ'
-    };
-
-    let translated = '';
-    for (let char of text.toLowerCase()) {
-        translated += baybayinMap[char] || char;
-    }
-    return translated;
+.login-box {
+    width: 400px;
+    padding: 40px;
+    position: relative;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
-function translateToFilipino(text) {
-    const filipinoMap = {
-        'ᜀ': 'a', 'ᜊ': 'b', 'ᜃ': 'k', 'ᜇ': 'd', 'ᜁ': 'e', 'ᜄ': 'g', 'ᜑ': 'h',
-        'ᜂ': 'i', 'ᜎ': 'l', 'ᜋ': 'm', 'ᜈ': 'n', 'ᜅ': 'ng', 'ᜉ': 'p',
-        'ᜐ': 's', 'ᜆ': 't', 'ᜏ': 'w', 'ᜌ': 'y'
-    };
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #333;
+}
 
-    let translated = '';
-    for (let char of text) {
-        translated += filipinoMap[char] || char;
-    }
-    return translated;
+.user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.user-box input,
+.user-box select {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #333;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label,
+.user-box select:focus ~ label,
+.user-box select:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #3498db;
+    font-size: 12px;
+}
+
+button {
+    background: #3498db;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+.output-box {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.output-box label {
+    font-size: 16px;
+    color: #333;
+}
+
+.output-box p {
+    font-size: 20px;
+    color: #333;
+    background: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 50px;
 }
