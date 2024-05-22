@@ -11,20 +11,13 @@
         <h2>Filipino to Baybayin Translator</h2>
         <form id="translatorForm">
             <div class="user-box">
-                <select id="translationDirection" required>
-                    <option value="filipinoToBaybayin">Filipino to Baybayin</option>
-                    <option value="baybayinToFilipino">Baybayin to Filipino</option>
-                </select>
-                <label>Translation Direction</label>
+                <input type="text" id="filipinoText" required>
+                <label>Filipino Text</label>
             </div>
-            <div class="user-box">
-                <input type="text" id="inputText" required>
-                <label>Input Text</label>
-            </div>
-            <button type="button" onclick="translate()">Translate</button>
+            <button type="button" onclick="translateToBaybayin()">Translate</button>
             <div class="output-box">
-                <label>Translation</label>
-                <p id="outputText"></p>
+                <label>Baybayin Translation</label>
+                <p id="baybayinText"></p>
             </div>
         </form>
     </div>
