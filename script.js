@@ -39,8 +39,3 @@ function translateToFilipino(text) {
     }
     return translated;
 }
-
-function reverseDirection() {
-    const directionSelect = document.getElementById('translationDirection');
-    directionSelect.value = directionSelect.value === 'filipinoToBaybayin' ? 'baybayinToFilipino' : 'filipinoToBaybayin';
-}
