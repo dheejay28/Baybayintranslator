@@ -7,35 +7,35 @@ function translateToBaybayin() {
 function translate(text) {
     const baybayinMap = {
         'a': 'ᜀ', 'e': 'ᜁ', 'i': 'ᜁ', 'o': 'ᜂ', 'u': 'ᜂ',
-        'ka': 'ᜃ', 'ke': 'ᜃᜁ', 'ki': 'ᜃᜁ', 'ko': 'ᜃᜂ', 'ku': 'ᜃᜂ',
-        'ga': 'ᜄ', 'ge': 'ᜄᜁ', 'gi': 'ᜄᜁ', 'go': 'ᜄᜂ', 'gu': 'ᜄᜂ',
-        'nga': 'ᜅ', 'nge': 'ᜅᜁ', 'ngi': 'ᜅᜁ', 'ngo': 'ᜅᜂ', 'ngu': 'ᜅᜂ',
-        'ta': 'ᜆ', 'te': 'ᜆᜁ', 'ti': 'ᜆᜁ', 'to': 'ᜆᜂ', 'tu': 'ᜆᜂ',
-        'da': 'ᜇ', 'de': 'ᜇᜁ', 'di': 'ᜇᜁ', 'do': 'ᜇᜂ', 'du': 'ᜇᜂ',
-        'ra': 'ᜇ', 're': 'ᜇᜁ', 'ri': 'ᜇᜁ', 'ro': 'ᜇᜂ', 'ru': 'ᜇᜂ',
-        'na': 'ᜈ', 'ne': 'ᜈᜁ', 'ni': 'ᜈᜁ', 'no': 'ᜈᜂ', 'nu': 'ᜈᜂ',
-        'pa': 'ᜉ', 'pe': 'ᜉᜁ', 'pi': 'ᜉᜁ', 'po': 'ᜉᜂ', 'pu': 'ᜉᜂ',
-        'ba': 'ᜊ', 'be': 'ᜊᜁ', 'bi': 'ᜊᜁ', 'bo': 'ᜊᜂ', 'bu': 'ᜊᜂ',
-        'ma': 'ᜋ', 'me': 'ᜋᜁ', 'mi': 'ᜋᜁ', 'mo': 'ᜋᜂ', 'mu': 'ᜋᜂ',
-        'ya': 'ᜌ', 'ye': 'ᜌᜁ', 'yi': 'ᜌᜁ', 'yo': 'ᜌᜂ', 'yu': 'ᜌᜂ',
-        'la': 'ᜎ', 'le': 'ᜎᜁ', 'li': 'ᜎᜁ', 'lo': 'ᜎᜂ', 'lu': 'ᜎᜂ',
-        'wa': 'ᜏ', 'we': 'ᜏᜁ', 'wi': 'ᜏᜁ', 'wo': 'ᜏᜂ', 'wu': 'ᜏᜂ',
-        'sa': 'ᜐ', 'se': 'ᜐᜁ', 'si': 'ᜐᜁ', 'so': 'ᜐᜂ', 'su': 'ᜐᜂ',
-        'ha': 'ᜑ', 'he': 'ᜑᜁ', 'hi': 'ᜑᜁ', 'ho': 'ᜑᜂ', 'hu': 'ᜑᜂ',
-        'k': 'ᜃ᜴', 'g': 'ᜄ᜴', 't': 'ᜆ᜴', 'd': 'ᜇ᜴', 'r': 'ᜇ᜴',
-        'n': 'ᜈ᜴', 'p': 'ᜉ᜴', 'b': 'ᜊ᜴', 'm': 'ᜋ᜴', 'y': 'ᜌ᜴',
-        'l': 'ᜎ᜴', 'w': 'ᜏ᜴', 's': 'ᜐ᜴', 'h': 'ᜑ᜴'
+        'ka': 'ᜃ', 'ke': 'ᜃᜒ', 'ki': 'ᜃᜒ', 'ko': 'ᜃᜓ', 'ku': 'ᜃᜓ',
+        'ga': 'ᜄ', 'ge': 'ᜄᜒ', 'gi': 'ᜄᜒ', 'go': 'ᜄᜓ', 'gu': 'ᜄᜓ',
+        'nga': 'ᜅ', 'nge': 'ᜅᜒ', 'ngi': 'ᜅᜒ', 'ngo': 'ᜅᜓ', 'ngu': 'ᜅᜓ',
+        'ta': 'ᜆ', 'te': 'ᜆᜒ', 'ti': 'ᜆᜒ', 'to': 'ᜆᜓ', 'tu': 'ᜆᜓ',
+        'da': 'ᜇ', 'de': 'ᜇᜒ', 'di': 'ᜇᜒ', 'do': 'ᜇᜓ', 'du': 'ᜇᜓ',
+        'ra': 'ᜇ', 're': 'ᜇᜒ', 'ri': 'ᜇᜒ', 'ro': 'ᜇᜓ', 'ru': 'ᜇᜓ',
+        'na': 'ᜈ', 'ne': 'ᜈᜒ', 'ni': 'ᜈᜒ', 'no': 'ᜈᜓ', 'nu': 'ᜈᜓ',
+        'pa': 'ᜉ', 'pe': 'ᜉᜒ', 'pi': 'ᜉᜒ', 'po': 'ᜉᜓ', 'pu': 'ᜉᜓ',
+        'ba': 'ᜊ', 'be': 'ᜊᜒ', 'bi': 'ᜊᜒ', 'bo': 'ᜊᜓ', 'bu': 'ᜊᜓ',
+        'ma': 'ᜋ', 'me': 'ᜋᜒ', 'mi': 'ᜋᜒ', 'mo': 'ᜋᜓ', 'mu': 'ᜋᜓ',
+        'ya': 'ᜌ', 'ye': 'ᜌᜒ', 'yi': 'ᜌᜒ', 'yo': 'ᜌᜓ', 'yu': 'ᜌᜓ',
+        'la': 'ᜎ', 'le': 'ᜎᜒ', 'li': 'ᜎᜒ', 'lo': 'ᜎᜓ', 'lu': 'ᜎᜓ',
+        'wa': 'ᜏ', 'we': 'ᜏᜒ', 'wi': 'ᜏᜒ', 'wo': 'ᜏᜓ', 'wu': 'ᜏᜓ',
+        'sa': 'ᜐ', 'se': 'ᜐᜒ', 'si': 'ᜐᜒ', 'so': 'ᜐᜓ', 'su': 'ᜐᜓ',
+        'ha': 'ᜑ', 'he': 'ᜑᜒ', 'hi': 'ᜑᜒ', 'ho': 'ᜑᜓ', 'hu': 'ᜑᜓ',
+        'k': 'ᜃ᜔', 'g': 'ᜄ᜔', 't': 'ᜆ᜔', 'd': 'ᜇ᜔', 'r': 'ᜇ᜔',
+        'n': 'ᜈ᜔', 'p': 'ᜉ᜔', 'b': 'ᜊ᜔', 'm': 'ᜋ᜔', 'y': 'ᜌ᜔',
+        'l': 'ᜎ᜔', 'w': 'ᜏ᜔', 's': 'ᜐ᜔', 'h': 'ᜑ᜔'
     };
 
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     let translated = '';
-    
+
     for (let i = 0; i < text.length; i++) {
         let char = text[i].toLowerCase();
         let nextChar = text[i + 1] ? text[i + 1].toLowerCase() : '';
         let nextNextChar = text[i + 2] ? text[i + 2].toLowerCase() : '';
 
-        // Check for special cases like "ngu"
+        // Check for three-letter combinations first
         if (char + nextChar + nextNextChar in baybayinMap) {
             translated += baybayinMap[char + nextChar + nextNextChar];
             i += 2; // skip next two characters
@@ -52,6 +52,11 @@ function translate(text) {
             } else {
                 let combined = char + 'a'; // assume default vowel 'a'
                 translated += baybayinMap[combined] || char;
+
+                // Check for final consonant (virama)
+                if (nextChar && !vowels.includes(nextChar)) {
+                    translated += '᜔'; // Add virama
+                }
             }
         }
     }
