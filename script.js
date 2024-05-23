@@ -22,9 +22,9 @@ function translate(text) {
         'wa': 'ᜏ', 'we': 'ᜏᜁ', 'wi': 'ᜏᜁ', 'wo': 'ᜏᜂ', 'wu': 'ᜏᜂ',
         'sa': 'ᜐ', 'se': 'ᜐᜁ', 'si': 'ᜐᜁ', 'so': 'ᜐᜂ', 'su': 'ᜐᜂ',
         'ha': 'ᜑ', 'he': 'ᜑᜁ', 'hi': 'ᜑᜁ', 'ho': 'ᜑᜂ', 'hu': 'ᜑᜂ',
-        'a': 'ᜀ', 'b': 'ᜊ', 'k': 'ᜃ', 'd': 'ᜇ', 'e': 'ᜁ', 'g': 'ᜄ', 'h': 'ᜑ',
-        'i': 'ᜂ', 'l': 'ᜎ', 'm': 'ᜋ', 'n': 'ᜈ', 'ng': 'ᜅ', 'o': 'ᜂ', 'p': 'ᜉ',
-        'r': 'ᜇ', 's': 'ᜐ', 't': 'ᜆ', 'u': 'ᜂ', 'w': 'ᜏ', 'y': 'ᜌ'
+        'k': 'ᜃ᜴', 'g': 'ᜄ᜴', 't': 'ᜆ᜴', 'd': 'ᜇ᜴', 'r': 'ᜇ᜴',
+        'n': 'ᜈ᜴', 'p': 'ᜉ᜴', 'b': 'ᜊ᜴', 'm': 'ᜋ᜴', 'y': 'ᜌ᜴',
+        'l': 'ᜎ᜴', 'w': 'ᜏ᜴', 's': 'ᜐ᜴', 'h': 'ᜑ᜴'
     };
 
     const vowels = ['a', 'e', 'i', 'o', 'u'];
@@ -33,20 +33,25 @@ function translate(text) {
     for (let i = 0; i < text.length; i++) {
         let char = text[i].toLowerCase();
         let nextChar = text[i + 1] ? text[i + 1].toLowerCase() : '';
-        
-        if (vowels.includes(char) || (char + nextChar in baybayinMap)) {
-            if (char + nextChar in baybayinMap) {
-                translated += baybayinMap[char + nextChar];
-                i++; // skip next character
-            } else {
+        let nextNextChar = text[i + 2] ? text[i + 2].toLowerCase() : '';
+
+        // Check for special cases like "ngu"
+        if (char + nextChar + nextNextChar in baybayinMap) {
+            translated += baybayinMap[char + nextChar + nextNextChar];
+            i += 2; // skip next two characters
+        }
+        // Check for two-letter combinations
+        else if (char + nextChar in baybayinMap) {
+            translated += baybayinMap[char + nextChar];
+            i++; // skip next character
+        }
+        // Single character translation
+        else {
+            if (vowels.includes(char)) {
                 translated += baybayinMap[char] || char;
-            }
-        } else {
-            let combined = char + 'a'; // assume default vowel 'a'
-            if (combined in baybayinMap) {
-                translated += baybayinMap[combined];
             } else {
-                translated += baybayinMap[char] || char;
+                let combined = char + 'a'; // assume default vowel 'a'
+                translated += baybayinMap[combined] || char;
             }
         }
     }
